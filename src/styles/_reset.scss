@@ -24,13 +24,44 @@ html {
 }
 
 body {
+  position: relative;
   min-width: 320px;
   min-height: 100%;
   margin: 0;
   overflow-x: clip;
-  background: $color-void;
+  background:
+    radial-gradient(ellipse 86% 72% at 32% 12%, rgba(65, 81, 142, 0.54), rgba(36, 53, 95, 0.25) 38%, transparent 69%),
+    radial-gradient(ellipse 54% 58% at 53% 18%, rgba(70, 153, 164, 0.22), transparent 56%),
+    radial-gradient(ellipse 62% 54% at 22% 46%, rgba(184, 77, 120, 0.16), transparent 64%),
+    linear-gradient(90deg, rgba(26, 32, 61, 0.28), transparent 43%, rgba(2, 4, 10, 0.56)),
+    linear-gradient(180deg, #151827 0%, #101520 47%, #070911 100%);
   color: $color-silver;
   font-family: $font-body;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  z-index: 1;
+  background:
+    radial-gradient(circle at 17% 24%, rgba(129, 97, 194, 0.14), transparent 18rem),
+    radial-gradient(circle at 47% 12%, rgba(78, 186, 185, 0.16), transparent 20rem),
+    radial-gradient(circle at 72% 72%, rgba(90, 62, 142, 0.12), transparent 24rem);
+  filter: blur(12px);
+  mix-blend-mode: screen;
+}
+
+body::after {
+  z-index: 2;
+  background:
+    linear-gradient(90deg, rgba(1, 2, 7, 0.04), transparent 32%, rgba(0, 0, 0, 0.28)),
+    radial-gradient(ellipse 82% 64% at 50% 50%, transparent 34%, rgba(2, 3, 9, 0.44) 100%);
 }
 
 body.has-menu-open {

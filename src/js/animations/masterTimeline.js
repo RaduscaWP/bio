@@ -94,7 +94,7 @@ function createTextReveal(section, { reducedMotion, animations, immediate = fals
 
   gsap.set(revealItems, {
     autoAlpha: 0,
-    y: reducedMotion ? 0 : 30,
+    y: reducedMotion ? 0 : 22,
   });
 
   const tween = gsap.to(revealItems, {
@@ -105,7 +105,7 @@ function createTextReveal(section, { reducedMotion, animations, immediate = fals
     stagger: reducedMotion ? 0.02 : 0.08,
     scrollTrigger: {
       trigger: section,
-      start: "top 72%",
+      start: "top 68%",
       once: true,
     },
   });
@@ -137,9 +137,9 @@ function createCameraChapter(section, sceneState, { sceneExperience, reducedMoti
     },
     scrollTrigger: {
       trigger: section,
-      start: "top 80%",
-      end: "bottom 18%",
-      scrub: 1.15,
+      start: "top 76%",
+      end: "bottom 76%",
+      scrub: 0.85,
     },
   });
 

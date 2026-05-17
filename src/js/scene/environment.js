@@ -1,8 +1,46 @@
 import * as THREE from "three";
 
-function createGlowPlane({ color, opacity, width, height, position }) {
+function createRadialGlowTexture({
+  size = 256,
+  innerAlpha = 1,
+  midAlpha = 0.42,
+  outerAlpha = 0,
+} = {}) {
+  const canvas = document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size;
+
+  const context = canvas.getContext("2d");
+  const center = size / 2;
+  const gradient = context.createRadialGradient(center, center, 0, center, center, center);
+
+  gradient.addColorStop(0, `rgba(255,255,255,${innerAlpha})`);
+  gradient.addColorStop(0.34, `rgba(255,255,255,${midAlpha})`);
+  gradient.addColorStop(0.72, "rgba(255,255,255,0.08)");
+  gradient.addColorStop(1, `rgba(255,255,255,${outerAlpha})`);
+
+  context.fillStyle = gradient;
+  context.fillRect(0, 0, size, size);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.needsUpdate = true;
+  return texture;
+}
+
+function createGlowPlane({
+  color,
+  opacity,
+  width,
+  height,
+  position,
+  innerAlpha = 1,
+  midAlpha = 0.42,
+}) {
+  const texture = createRadialGlowTexture({ innerAlpha, midAlpha });
   const material = new THREE.MeshBasicMaterial({
     color,
+    map: texture,
     transparent: true,
     opacity,
     depthWrite: false,
@@ -16,59 +54,63 @@ function createGlowPlane({ color, opacity, width, height, position }) {
 
 export function createEnvironment(scene) {
   scene.background = null;
-  scene.fog = new THREE.FogExp2(0x05070d, 0.058);
+  scene.fog = new THREE.FogExp2(0x0a0c14, 0.048);
 
   const group = new THREE.Group();
   group.name = "NightEnvironment";
 
-  const moonMaterial = new THREE.MeshBasicMaterial({
-    color: 0xe1ebff,
-    transparent: true,
-    opacity: 0.1,
-    depthWrite: false,
+  const moon = createGlowPlane({
+    color: 0xc7d7ee,
+    opacity: 0.065,
+    width: 4.8,
+    height: 4.8,
+    position: new THREE.Vector3(-2.95, 2.02, -6.2),
+    innerAlpha: 0.62,
+    midAlpha: 0.24,
   });
-  const moon = new THREE.Mesh(new THREE.CircleGeometry(1.18, 48), moonMaterial);
-  moon.name = "SoftMoonDisc";
-  moon.position.set(-2.9, 2.05, -5.8);
+  moon.name = "SoftMoonBloom";
 
   const leftGlow = createGlowPlane({
-    color: 0x4f86b8,
-    opacity: 0.2,
-    width: 7.4,
-    height: 6.2,
-    position: new THREE.Vector3(-1.95, 0.88, -5.7),
+    color: 0x557cb9,
+    opacity: 0.24,
+    width: 8.8,
+    height: 7.8,
+    position: new THREE.Vector3(-2.25, 0.9, -5.9),
+    innerAlpha: 0.86,
+    midAlpha: 0.34,
   });
   leftGlow.name = "LeftGlow";
 
   const rightGlow = createGlowPlane({
-    color: 0x5d4b98,
-    opacity: 0.16,
-    width: 6.8,
-    height: 6,
-    position: new THREE.Vector3(1.85, -0.25, -6.1),
+    color: 0x7c4a8a,
+    opacity: 0.18,
+    width: 8.2,
+    height: 7.4,
+    position: new THREE.Vector3(2.08, -0.35, -6.3),
+    innerAlpha: 0.82,
+    midAlpha: 0.3,
   });
   rightGlow.name = "RightGlow";
 
-  const hazeMaterial = new THREE.MeshBasicMaterial({
-    color: 0x8cb6c7,
-    transparent: true,
-    opacity: 0.045,
-    depthWrite: false,
-    blending: THREE.AdditiveBlending,
-    side: THREE.DoubleSide,
+  const haze = createGlowPlane({
+    color: 0x8aaec4,
+    opacity: 0.075,
+    width: 13.5,
+    height: 8.4,
+    position: new THREE.Vector3(-0.15, -0.16, -3.8),
+    innerAlpha: 0.48,
+    midAlpha: 0.22,
   });
-  const haze = new THREE.Mesh(new THREE.PlaneGeometry(11.5, 6.4), hazeMaterial);
   haze.name = "NightHaze";
-  haze.position.set(0, -0.22, -3.4);
 
   group.add(moon, leftGlow, rightGlow, haze);
   scene.add(group);
 
   const state = {
-    moonOpacity: 0.1,
-    hazeOpacity: 0.045,
-    leftGlowOpacity: 0.2,
-    rightGlowOpacity: 0.16,
+    moonOpacity: 0.065,
+    hazeOpacity: 0.075,
+    leftGlowOpacity: 0.24,
+    rightGlowOpacity: 0.18,
   };
 
   function update(_delta, elapsed) {
@@ -88,6 +130,7 @@ export function createEnvironment(scene) {
   function dispose() {
     [moon, leftGlow, rightGlow, haze].forEach((mesh) => {
       mesh.geometry.dispose();
+      mesh.material.map?.dispose();
       mesh.material.dispose();
     });
     scene.remove(group);

@@ -62,6 +62,12 @@ export function createScene({ canvas, reducedMotion = false } = {}) {
       modelState.mixer.update(delta);
     }
 
+    if (!reducedMotion) {
+      owlSpinGroup.rotation.y = Math.sin(elapsed * 0.22) * 0.07;
+      owlFloatGroup.position.y = Math.sin(elapsed * 0.55) * 0.025;
+      owlFloatGroup.rotation.z = Math.sin(elapsed * 0.34) * 0.012;
+    }
+
     particles.update(delta, elapsed);
     environment.update(delta, elapsed);
     camera.lookAt(cameraTarget);

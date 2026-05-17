@@ -34,7 +34,7 @@ export const storyChapters = [
       owl: {
         position: { x: 0.55, y: -0.05, z: 0 },
         rotation: { x: 0, y: 0, z: 0 },
-        scale: { x: 0.85, y: 0.85, z: 0.85 },
+        scale: { x: 1.02, y: 1.02, z: 1.02 },
       },
       lights: {
         ambient: 0.42,
@@ -80,8 +80,8 @@ export const storyChapters = [
       },
       owl: {
         position: { x: -0.4, y: -0.05, z: 0 },
-        rotation: { x: 0, y: 0.55, z: 0 },
-        scale: { x: 0.85, y: 0.85, z: 0.85 },
+        rotation: { x: 0, y: 0.4, z: 0 },
+        scale: { x: 0.98, y: 0.98, z: 0.98 },
       },
       lights: {
         ambient: 0.48,
@@ -126,8 +126,8 @@ export const storyChapters = [
       },
       owl: {
         position: { x: 0.55, y: -0.05, z: 0 },
-        rotation: { x: 0, y: -1.45, z: 0 },
-        scale: { x: 0.85, y: 0.85, z: 0.85 },
+        rotation: { x: 0, y: -1, z: 0 },
+        scale: { x: 1.06, y: 1.06, z: 1.06 },
       },
       lights: {
         ambient: 0.4,
@@ -173,7 +173,7 @@ export const storyChapters = [
       owl: {
         position: { x: -0.3, y: -0.05, z: 0 },
         rotation: { x: 0, y: 0.15, z: 0 },
-        scale: { x: 0.85, y: 0.85, z: 0.85 },
+        scale: { x: 1.08, y: 1.08, z: 1.08 },
       },
       lights: {
         ambient: 0.36,
@@ -219,7 +219,7 @@ export const storyChapters = [
       owl: {
         position: { x: 0.5, y: -0.1, z: 0 },
         rotation: { x: 0.12, y: -0.25, z: 0 },
-        scale: { x: 0.85, y: 0.85, z: 0.85 },
+        scale: { x: 1, y: 1, z: 1 },
       },
       lights: {
         ambient: 0.44,
@@ -264,8 +264,8 @@ export const storyChapters = [
       },
       owl: {
         position: { x: -0.45, y: -0.05, z: 0 },
-        rotation: { x: 0, y: 0.7, z: 0 },
-        scale: { x: 0.85, y: 0.85, z: 0.85 },
+        rotation: { x: 0, y: 0.5, z: 0 },
+        scale: { x: 0.94, y: 0.94, z: 0.94 },
       },
       lights: {
         ambient: 0.5,
@@ -311,7 +311,7 @@ export const storyChapters = [
       owl: {
         position: { x: 0.5, y: -0.05, z: 0 },
         rotation: { x: 0, y: -0.45, z: 0 },
-        scale: { x: 0.85, y: 0.85, z: 0.85 },
+        scale: { x: 0.96, y: 0.96, z: 0.96 },
       },
       lights: {
         ambient: 0.46,
@@ -357,8 +357,8 @@ export const storyChapters = [
       },
       owl: {
         position: { x: -0.45, y: -0.05, z: 0 },
-        rotation: { x: 0, y: 1.45, z: 0 },
-        scale: { x: 0.85, y: 0.85, z: 0.85 },
+        rotation: { x: 0, y: 1, z: 0 },
+        scale: { x: 1.06, y: 1.06, z: 1.06 },
       },
       lights: {
         ambient: 0.34,
@@ -403,8 +403,8 @@ export const storyChapters = [
       },
       owl: {
         position: { x: 0, y: -0.05, z: 0 },
-        rotation: { x: 0, y: 0, z: 0 },
-        scale: { x: 0.85, y: 0.85, z: 0.85 },
+        rotation: { x: 0, y: 0.15, z: 0 },
+        scale: { x: 1, y: 1, z: 1 },
       },
       lights: {
         ambient: 0.32,
