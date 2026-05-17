@@ -75,13 +75,13 @@ export const storyChapters = [
     theme: "mist",
     sceneState: {
       camera: {
-        position: { x: -0.2, y: 0.1, z: 5.6 },
-        target: { x: -0.25, y: 0, z: 0 },
+        position: { x: -0.3, y: 0.12, z: 4.55 },
+        target: { x: -0.62, y: 0, z: 0 },
       },
       owl: {
-        position: { x: -0.4, y: -0.05, z: 0 },
+        position: { x: -1, y: -0.08, z: 0 },
         rotation: { x: 0, y: 0.4, z: 0 },
-        scale: { x: 0.98, y: 0.98, z: 0.98 },
+        scale: { x: 1.28, y: 1.28, z: 1.28 },
       },
       lights: {
         ambient: 0.48,
@@ -125,9 +125,9 @@ export const storyChapters = [
         target: { x: 0.45, y: 0, z: 0 },
       },
       owl: {
-        position: { x: 0.55, y: -0.05, z: 0 },
+        position: { x: 0.72, y: -0.05, z: 0 },
         rotation: { x: 0, y: -1, z: 0 },
-        scale: { x: 1.06, y: 1.06, z: 1.06 },
+        scale: { x: 1.12, y: 1.12, z: 1.12 },
       },
       lights: {
         ambient: 0.4,
@@ -171,9 +171,9 @@ export const storyChapters = [
         target: { x: -0.3, y: 0.25, z: 0 },
       },
       owl: {
-        position: { x: -0.3, y: -0.05, z: 0 },
+        position: { x: -0.52, y: -0.06, z: 0 },
         rotation: { x: 0, y: 0.15, z: 0 },
-        scale: { x: 1.08, y: 1.08, z: 1.08 },
+        scale: { x: 1.12, y: 1.12, z: 1.12 },
       },
       lights: {
         ambient: 0.36,
@@ -217,9 +217,9 @@ export const storyChapters = [
         target: { x: 0.45, y: -0.05, z: 0 },
       },
       owl: {
-        position: { x: 0.5, y: -0.1, z: 0 },
+        position: { x: 0.7, y: -0.1, z: 0 },
         rotation: { x: 0.12, y: -0.25, z: 0 },
-        scale: { x: 1, y: 1, z: 1 },
+        scale: { x: 1.08, y: 1.08, z: 1.08 },
       },
       lights: {
         ambient: 0.44,
@@ -259,13 +259,13 @@ export const storyChapters = [
     theme: "mist",
     sceneState: {
       camera: {
-        position: { x: -0.25, y: 0.2, z: 6.4 },
-        target: { x: -0.3, y: 0, z: 0 },
+        position: { x: -0.36, y: 0.18, z: 4.25 },
+        target: { x: -0.78, y: 0, z: 0 },
       },
       owl: {
-        position: { x: -0.45, y: -0.05, z: 0 },
+        position: { x: -1.12, y: -0.1, z: 0 },
         rotation: { x: 0, y: 0.5, z: 0 },
-        scale: { x: 0.94, y: 0.94, z: 0.94 },
+        scale: { x: 1.5, y: 1.5, z: 1.5 },
       },
       lights: {
         ambient: 0.5,
@@ -309,9 +309,9 @@ export const storyChapters = [
         target: { x: 0.35, y: 0, z: 0 },
       },
       owl: {
-        position: { x: 0.5, y: -0.05, z: 0 },
+        position: { x: 0.72, y: -0.06, z: 0 },
         rotation: { x: 0, y: -0.45, z: 0 },
-        scale: { x: 0.96, y: 0.96, z: 0.96 },
+        scale: { x: 1.08, y: 1.08, z: 1.08 },
       },
       lights: {
         ambient: 0.46,
@@ -356,9 +356,9 @@ export const storyChapters = [
         target: { x: -0.35, y: 0, z: 0 },
       },
       owl: {
-        position: { x: -0.45, y: -0.05, z: 0 },
+        position: { x: -0.98, y: -0.08, z: 0 },
         rotation: { x: 0, y: 1, z: 0 },
-        scale: { x: 1.06, y: 1.06, z: 1.06 },
+        scale: { x: 1.28, y: 1.28, z: 1.28 },
       },
       lights: {
         ambient: 0.34,

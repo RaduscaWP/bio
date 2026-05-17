@@ -23,6 +23,16 @@ export function createScene({ canvas, reducedMotion = false } = {}) {
   const owlSpinGroup = new THREE.Group();
   const owlFloatGroup = new THREE.Group();
   const clock = new THREE.Clock();
+  const dragRotation = {
+    active: false,
+    pointerId: null,
+    lastX: 0,
+    lastY: 0,
+    yaw: 0,
+    pitch: 0,
+    targetYaw: 0,
+    targetPitch: 0,
+  };
 
   let destroyed = false;
 
@@ -51,6 +61,53 @@ export function createScene({ canvas, reducedMotion = false } = {}) {
     reducedMotion,
   });
 
+  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+  const isDragBlocked = (target) =>
+    target?.closest?.("a, button, input, textarea, select, summary, [data-menu-toggle], [data-section-target]");
+
+  function onPointerDown(event) {
+    if (destroyed || event.button !== 0 || isDragBlocked(event.target)) {
+      return;
+    }
+
+    dragRotation.active = true;
+    dragRotation.pointerId = event.pointerId;
+    dragRotation.lastX = event.clientX;
+    dragRotation.lastY = event.clientY;
+    document.body.classList.add("is-rotating-owl");
+  }
+
+  function onPointerMove(event) {
+    if (!dragRotation.active || event.pointerId !== dragRotation.pointerId) {
+      return;
+    }
+
+    const deltaX = event.clientX - dragRotation.lastX;
+    const deltaY = event.clientY - dragRotation.lastY;
+
+    dragRotation.lastX = event.clientX;
+    dragRotation.lastY = event.clientY;
+    dragRotation.targetYaw = clamp(dragRotation.targetYaw + deltaX * 0.006, -0.95, 0.95);
+    dragRotation.targetPitch = clamp(dragRotation.targetPitch + deltaY * 0.003, -0.18, 0.18);
+    event.preventDefault();
+  }
+
+  function stopDragRotation() {
+    if (!dragRotation.active) {
+      return;
+    }
+
+    dragRotation.active = false;
+    dragRotation.pointerId = null;
+    document.body.classList.remove("is-rotating-owl");
+  }
+
+  window.addEventListener("pointerdown", onPointerDown, { passive: true });
+  window.addEventListener("pointermove", onPointerMove, { passive: false });
+  window.addEventListener("pointerup", stopDragRotation);
+  window.addEventListener("pointercancel", stopDragRotation);
+
   function update(delta = clock.getDelta()) {
     if (destroyed) {
       return;
@@ -62,10 +119,17 @@ export function createScene({ canvas, reducedMotion = false } = {}) {
       modelState.mixer.update(delta);
     }
 
+    dragRotation.yaw += (dragRotation.targetYaw - dragRotation.yaw) * 0.12;
+    dragRotation.pitch += (dragRotation.targetPitch - dragRotation.pitch) * 0.12;
+
     if (!reducedMotion) {
-      owlSpinGroup.rotation.y = Math.sin(elapsed * 0.22) * 0.07;
+      owlSpinGroup.rotation.y = Math.sin(elapsed * 0.22) * 0.07 + dragRotation.yaw;
+      owlSpinGroup.rotation.x = dragRotation.pitch;
       owlFloatGroup.position.y = Math.sin(elapsed * 0.55) * 0.025;
       owlFloatGroup.rotation.z = Math.sin(elapsed * 0.34) * 0.012;
+    } else {
+      owlSpinGroup.rotation.y = dragRotation.yaw;
+      owlSpinGroup.rotation.x = dragRotation.pitch;
     }
 
     particles.update(delta, elapsed);
@@ -90,6 +154,11 @@ export function createScene({ canvas, reducedMotion = false } = {}) {
     }
 
     destroyed = true;
+    stopDragRotation();
+    window.removeEventListener("pointerdown", onPointerDown);
+    window.removeEventListener("pointermove", onPointerMove);
+    window.removeEventListener("pointerup", stopDragRotation);
+    window.removeEventListener("pointercancel", stopDragRotation);
     disposeLoadedModel(modelState);
     particles.dispose();
     environment.dispose();

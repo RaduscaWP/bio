@@ -68,6 +68,11 @@ body.has-menu-open {
   overflow: hidden;
 }
 
+body.is-rotating-owl {
+  cursor: grabbing;
+  user-select: none;
+}
+
 button,
 input,
 textarea,
