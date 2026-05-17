@@ -33,7 +33,7 @@ export const storyChapters = [
       },
       owl: {
         position: { x: 0.55, y: -0.05, z: 0 },
-        rotation: { x: 0.01, y: 0.32, z: 0.04 },
+        rotation: { x: 0, y: 0, z: 0 },
         scale: { x: 0.85, y: 0.85, z: 0.85 },
       },
       lights: {
@@ -75,13 +75,13 @@ export const storyChapters = [
     theme: "mist",
     sceneState: {
       camera: {
-        position: { x: 0.06, y: 0.22, z: 2.95 },
-        target: { x: 0.02, y: 0.1, z: 0 },
+        position: { x: -0.2, y: 0.1, z: 5.6 },
+        target: { x: -0.25, y: 0, z: 0 },
       },
       owl: {
-        position: { x: 0.18, y: -0.28, z: 0 },
-        rotation: { x: -0.015, y: 0.18, z: 0.01 },
-        scale: { x: 0.98, y: 0.98, z: 0.98 },
+        position: { x: -0.4, y: -0.05, z: 0 },
+        rotation: { x: 0, y: 0.55, z: 0 },
+        scale: { x: 0.85, y: 0.85, z: 0.85 },
       },
       lights: {
         ambient: 0.48,
@@ -121,13 +121,13 @@ export const storyChapters = [
     theme: "silver",
     sceneState: {
       camera: {
-        position: { x: 1.12, y: 0.16, z: 2.16 },
-        target: { x: 0.3, y: 0.13, z: 0 },
+        position: { x: 0.4, y: 0.1, z: 4.4 },
+        target: { x: 0.45, y: 0, z: 0 },
       },
       owl: {
-        position: { x: -0.12, y: -0.18, z: 0 },
-        rotation: { x: -0.02, y: -0.42, z: 0.06 },
-        scale: { x: 1.02, y: 1.02, z: 1.02 },
+        position: { x: 0.55, y: -0.05, z: 0 },
+        rotation: { x: 0, y: -1.45, z: 0 },
+        scale: { x: 0.85, y: 0.85, z: 0.85 },
       },
       lights: {
         ambient: 0.4,
@@ -167,13 +167,13 @@ export const storyChapters = [
     theme: "aurora",
     sceneState: {
       camera: {
-        position: { x: -0.46, y: 0.56, z: 1.58 },
-        target: { x: -0.05, y: 0.37, z: 0 },
+        position: { x: -0.3, y: 0.35, z: 3.2 },
+        target: { x: -0.3, y: 0.25, z: 0 },
       },
       owl: {
-        position: { x: 0.34, y: -0.14, z: 0 },
-        rotation: { x: 0.012, y: 0.56, z: -0.01 },
-        scale: { x: 1.12, y: 1.12, z: 1.12 },
+        position: { x: -0.3, y: -0.05, z: 0 },
+        rotation: { x: 0, y: 0.15, z: 0 },
+        scale: { x: 0.85, y: 0.85, z: 0.85 },
       },
       lights: {
         ambient: 0.36,
@@ -213,13 +213,13 @@ export const storyChapters = [
     theme: "moon",
     sceneState: {
       camera: {
-        position: { x: 0.82, y: -0.02, z: 2.34 },
-        target: { x: 0.15, y: 0.03, z: 0 },
+        position: { x: 0.4, y: 0.2, z: 4.6 },
+        target: { x: 0.45, y: -0.05, z: 0 },
       },
       owl: {
-        position: { x: -0.26, y: -0.24, z: 0 },
-        rotation: { x: -0.015, y: -0.22, z: 0.03 },
-        scale: { x: 1.04, y: 1.04, z: 1.04 },
+        position: { x: 0.5, y: -0.1, z: 0 },
+        rotation: { x: 0.12, y: -0.25, z: 0 },
+        scale: { x: 0.85, y: 0.85, z: 0.85 },
       },
       lights: {
         ambient: 0.44,
@@ -259,13 +259,13 @@ export const storyChapters = [
     theme: "mist",
     sceneState: {
       camera: {
-        position: { x: 0.02, y: 0.28, z: 3.84 },
-        target: { x: 0.02, y: 0.06, z: 0 },
+        position: { x: -0.25, y: 0.2, z: 6.4 },
+        target: { x: -0.3, y: 0, z: 0 },
       },
       owl: {
-        position: { x: 0.18, y: -0.3, z: 0 },
-        rotation: { x: -0.025, y: 0.08, z: -0.012 },
-        scale: { x: 0.9, y: 0.9, z: 0.9 },
+        position: { x: -0.45, y: -0.05, z: 0 },
+        rotation: { x: 0, y: 0.7, z: 0 },
+        scale: { x: 0.85, y: 0.85, z: 0.85 },
       },
       lights: {
         ambient: 0.5,
@@ -305,13 +305,13 @@ export const storyChapters = [
     theme: "silver",
     sceneState: {
       camera: {
-        position: { x: 0.34, y: 0.2, z: 2.94 },
-        target: { x: 0.06, y: 0.14, z: 0 },
+        position: { x: 0.3, y: 0.15, z: 5.4 },
+        target: { x: 0.35, y: 0, z: 0 },
       },
       owl: {
-        position: { x: -0.06, y: -0.24, z: 0 },
-        rotation: { x: -0.006, y: -0.12, z: 0.02 },
-        scale: { x: 0.98, y: 0.98, z: 0.98 },
+        position: { x: 0.5, y: -0.05, z: 0 },
+        rotation: { x: 0, y: -0.45, z: 0 },
+        scale: { x: 0.85, y: 0.85, z: 0.85 },
       },
       lights: {
         ambient: 0.46,
@@ -352,13 +352,13 @@ export const storyChapters = [
     theme: "aurora",
     sceneState: {
       camera: {
-        position: { x: -1.08, y: 0.34, z: 1.9 },
-        target: { x: -0.18, y: 0.18, z: 0 },
+        position: { x: -0.3, y: 0.15, z: 4.6 },
+        target: { x: -0.35, y: 0, z: 0 },
       },
       owl: {
-        position: { x: 0.42, y: -0.2, z: 0 },
-        rotation: { x: 0.022, y: 0.72, z: -0.05 },
-        scale: { x: 1.06, y: 1.06, z: 1.06 },
+        position: { x: -0.45, y: -0.05, z: 0 },
+        rotation: { x: 0, y: 1.45, z: 0 },
+        scale: { x: 0.85, y: 0.85, z: 0.85 },
       },
       lights: {
         ambient: 0.34,
@@ -398,13 +398,13 @@ export const storyChapters = [
     theme: "ember",
     sceneState: {
       camera: {
-        position: { x: 0.04, y: 0.44, z: 2.72 },
-        target: { x: 0.02, y: 0.2, z: 0 },
+        position: { x: 0, y: 0.15, z: 5.6 },
+        target: { x: 0, y: 0, z: 0 },
       },
       owl: {
-        position: { x: 0.1, y: -0.24, z: 0 },
-        rotation: { x: 0.004, y: 0.16, z: 0 },
-        scale: { x: 0.96, y: 0.96, z: 0.96 },
+        position: { x: 0, y: -0.05, z: 0 },
+        rotation: { x: 0, y: 0, z: 0 },
+        scale: { x: 0.85, y: 0.85, z: 0.85 },
       },
       lights: {
         ambient: 0.32,
@@ -435,9 +435,10 @@ export const footerContent = {
     { label: "Cartea Roșie a Republicii Moldova", href: "https://cartearosie.ipape.md/" },
     { label: "Cornell All About Birds", href: "https://www.allaboutbirds.org/guide/Barn_Owl/id" },
     { label: "Barn Owl Trust", href: "https://www.barnowltrust.org.uk/barn-owl-facts/barn-owl-adaptations/" },
+    { label: "Model 3D: Carnegie Museum (CC BY 4.0)", href: "https://sketchfab.com/3d-models/common-barn-owl-19c989a6681145bc999c332699eb852e" },
   ],
   credits: [
     "Proiect realizat de Radu-Ștefan Grozav, Chișinău.",
-    "Modelul 3D este folosit conform licenței autorului.",
+    "Model 3D: „Common Barn Owl\" — Carnegie Museum of Natural History / Innovation Studio, licență CC BY 4.0.",
   ],
 };

@@ -55,6 +55,8 @@ function stripSupportGeometry(model) {
   removable.forEach((mesh) => mesh.parent?.remove(mesh));
 }
 
+const MODEL_BASE_YAW = Math.PI;
+
 function normalizeModel(model, targetHeight = 2.18) {
   const box = new THREE.Box3().setFromObject(model);
   const size = new THREE.Vector3();
@@ -67,7 +69,7 @@ function normalizeModel(model, targetHeight = 2.18) {
 
   model.position.sub(center);
   model.scale.multiplyScalar(scale);
-  model.rotation.y = Math.PI;
+  model.rotation.y = MODEL_BASE_YAW;
   model.position.y -= 0.32;
 }
 
