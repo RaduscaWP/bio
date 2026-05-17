@@ -1,0 +1,87 @@
+@use "variables" as *;
+
+.progress-indicator {
+  position: fixed;
+  right: clamp(1rem, 2vw, 1.8rem);
+  top: 50%;
+  z-index: $z-ui;
+  display: grid;
+  gap: 0.95rem;
+  transform: translateY(-50%);
+}
+
+.progress-dot {
+  --dot-size: 0.32rem;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+
+.progress-dot::after {
+  content: "";
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: rgba($color-silver, 0.32);
+  transition:
+    background 220ms $ease-out,
+    transform 220ms $ease-out,
+    width 220ms $ease-out,
+    height 220ms $ease-out;
+}
+
+.progress-dot__index,
+.progress-dot__label {
+  position: absolute;
+  right: calc(100% + 0.85rem);
+  white-space: nowrap;
+  color: rgba($color-silver, 0.62);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateX(0.35rem);
+  pointer-events: none;
+  transition:
+    opacity 220ms $ease-out,
+    transform 220ms $ease-out;
+}
+
+.progress-dot__index {
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-dot__label {
+  right: calc(100% + 2.3rem);
+}
+
+.progress-dot.is-active::after {
+  --dot-size: 0.5rem;
+  background: $color-silver;
+}
+
+.progress-dot:hover::after,
+.progress-dot:focus-visible::after {
+  background: $color-silver;
+  transform: scale(1.15);
+}
+
+.progress-dot.is-active .progress-dot__index,
+.progress-dot:hover .progress-dot__index,
+.progress-dot:hover .progress-dot__label,
+.progress-dot:focus-visible .progress-dot__index,
+.progress-dot:focus-visible .progress-dot__label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: $bp-tablet) {
+  .progress-indicator {
+    display: none;
+  }
+}

@@ -1,0 +1,189 @@
+@use "variables" as *;
+
+body {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+.species-mark__label,
+.menu-toggle__label,
+.section-kicker,
+.section-notes__eyebrow,
+.progress-dot__index,
+.chapter-menu__label,
+.micro-nav__label,
+.site-footer__label,
+.site-footer__heading,
+.note-line__label,
+.loading-veil__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.species-mark__title,
+.species-mark__latin,
+.chapter-menu__name,
+.progress-dot__label,
+.site-footer__links a,
+.site-footer__notes li,
+.micro-nav__link,
+.loading-veil__status {
+  line-height: 1.3;
+}
+
+.section-title,
+.chapter-menu__title {
+  font-family: $font-heading;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.section-title {
+  max-width: 6ch;
+  font-size: clamp(4.1rem, 9vw, 10.2rem);
+  line-height: 0.82;
+}
+
+.story-section--closing .section-title {
+  max-width: 7.2ch;
+}
+
+.section-subtitle {
+  color: rgba($color-silver, 0.76);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+}
+
+.section-body,
+.section-micro,
+.note-line__text,
+.chapter-menu__text,
+.site-footer__description,
+.site-footer__notes li {
+  color: $color-muted;
+  font-size: clamp(1rem, 1.08vw, 1.18rem);
+  line-height: 1.78;
+}
+
+.section-body {
+  max-width: 28rem;
+}
+
+.section-micro {
+  max-width: 23rem;
+  font-size: clamp(0.94rem, 0.98vw, 1.02rem);
+  color: rgba($color-silver, 0.88);
+}
+
+.note-line__index,
+.loading-veil__status {
+  color: $color-dim;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.note-line__label {
+  color: $color-silver;
+}
+
+.note-line__text {
+  font-size: 0.98rem;
+}
+
+.species-mark__title {
+  font-size: 1.32rem;
+  font-weight: 700;
+}
+
+.species-mark__latin {
+  color: $color-dim;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+}
+
+.chapter-menu__title {
+  max-width: 6ch;
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.9;
+}
+
+.chapter-menu__name {
+  color: $color-silver;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.chapter-menu__caption {
+  color: $color-muted;
+  font-size: 0.96rem;
+}
+
+.site-footer__links a,
+.site-footer__notes li {
+  font-size: 0.95rem;
+}
+
+@media (max-width: $bp-tablet) {
+  .section-title {
+    max-width: 7ch;
+    font-size: clamp(3.3rem, 12vw, 7rem);
+    line-height: 0.88;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  body {
+    font-size: 15px;
+  }
+
+  .species-mark__label,
+  .menu-toggle__label,
+  .section-kicker,
+  .section-notes__eyebrow,
+  .progress-dot__index,
+  .chapter-menu__label,
+  .micro-nav__label,
+  .site-footer__label,
+  .site-footer__heading,
+  .note-line__label,
+  .loading-veil__label {
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+  }
+
+  .section-title {
+    max-width: 7.4ch;
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .section-body,
+  .section-micro,
+  .note-line__text,
+  .chapter-menu__text,
+  .site-footer__description,
+  .site-footer__notes li {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+}

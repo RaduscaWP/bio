@@ -1,0 +1,31 @@
+@use "variables" as *;
+
+.section-kicker,
+.section-title,
+.section-subtitle,
+.section-body,
+.section-micro,
+.section-notes__eyebrow,
+.note-line {
+  will-change: transform, opacity;
+}
+
+.chapter-menu__backdrop,
+.chapter-menu__panel,
+.loading-veil,
+.menu-toggle span {
+  will-change: transform, opacity;
+}
+
+body.has-menu-open .menu-toggle span:nth-child(1) {
+  transform: translateY(0.58rem) rotate(45deg);
+}
+
+body.has-menu-open .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+body.has-menu-open .menu-toggle span:nth-child(3) {
+  width: 1.55rem;
+  transform: translateY(-0.58rem) rotate(-45deg);
+}

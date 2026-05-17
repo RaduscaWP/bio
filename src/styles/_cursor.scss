@@ -1,0 +1,53 @@
+@use "variables" as *;
+
+.custom-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: $z-cursor;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 1px solid rgba($color-silver, 0.62);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0);
+  transition:
+    width 220ms $ease-out,
+    height 220ms $ease-out,
+    border-color 220ms $ease-out,
+    background 220ms $ease-out,
+    opacity 220ms $ease-out;
+  mix-blend-mode: difference;
+}
+
+body.has-custom-cursor {
+  cursor: none;
+}
+
+body.has-custom-cursor a,
+body.has-custom-cursor button,
+body.has-custom-cursor [role="button"] {
+  cursor: none;
+}
+
+.custom-cursor.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor.is-hovering {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-color: rgba($color-moon, 0.88);
+  background: rgba($color-moon, 0.08);
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  body.has-custom-cursor {
+    cursor: auto;
+  }
+
+  .custom-cursor {
+    display: none;
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"c:/Users/GZv0x00/OneDrive/Документы/Owl\" 2>/dev/null; echo \"---\"; ls -la \"c:/Users/GZv0x00/.claude/plans/\" 2>/dev/null)",
+      "Read(//c/Users/GZv0x00/.claude/plans/**)",
+      "mcp__blender__get_polyhaven_status",
+      "mcp__blender__get_sketchfab_status",
+      "WebSearch",
+      "WebFetch(domain:sketchfab.com)",
+      "Bash(curl -sIL \"https://sketchfab.com/3d-models/barn-owl-0e65de5934db4f0eae02835ba7227dcc/download\")",
+      "Bash(curl -sI \"https://sketchfab.com/3d-models/barn-owl-0e65de5934db4f0eae02835ba7227dcc\")",
+      "Bash(curl -v \"https://sketchfab.com/\")",
+      "WebFetch(domain:3dmodels.org)",
+      "WebFetch(domain:muzea.malopolska.pl)",
+      "Bash(curl -L -o /tmp/test_owl.html -A \"Mozilla/5.0\" -m 15 \"https://muzea.malopolska.pl/en/szukaj?text=barn+owl\")",
+      "Bash(curl -L -k --ssl-no-revoke -o /tmp/test_owl.html -A \"Mozilla/5.0\" -m 20 \"https://muzea.malopolska.pl/en/szukaj?text=barn+owl\")",
+      "Bash(curl -L -k --ssl-no-revoke -A \"Mozilla/5.0\" -m 30 \"https://media.sketchfab.com/models/608a7502cf2643d9ab4c89294199a8d1/files/embeddable.zip\" -o /tmp/test_dl.zip)",
+      "WebFetch(domain:3d.si.edu)",
+      "Bash(curl -L -k --ssl-no-revoke -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" -m 30 \"https://muzea.malopolska.pl/szukaj?text=p%C5%82omykowka\" -o /tmp/mp_search.html)",
+      "WebFetch(domain:poly.pizza)",
+      "Bash(curl -L -k --ssl-no-revoke -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" -m 20 \"https://poly.pizza/m/eSEv3rCMKbg\" -o /tmp/polypizza_owl.html)",
+      "Bash(curl -L -k --ssl-no-revoke -A \"Mozilla/5.0\" -m 30 \"https://static.poly.pizza/14dca6c0-0480-49b3-97f1-7610abee165f.glb\" -o /tmp/polypizza_owl.glb)",
+      "Bash(curl -L -k --ssl-no-revoke -A \"Mozilla/5.0\" -m 20 \"https://static.poly.pizza/14dca6c0-0480-49b3-97f1-7610abee165f.jpg\" -o /tmp/polypizza_owl.jpg)",
+      "Bash(cp /tmp/polypizza_owl.jpg \"c:/Users/GZv0x00/OneDrive/Документы/Owl/_renders/polypizza_preview.jpg\")",
+      "Bash(curl -L -k --ssl-no-revoke -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 Chrome/120.0\" -m 30 \"https://poly.pizza/search/barn%20owl\" -o /tmp/pp_search.html)",
+      "Bash(grep -oE '\\\\{\"id\":\"[^\"]+\",\"title\":\"Barn[^\"]*\"[^}]*\\\\}' /tmp/pp_search.html)",
+      "Bash(grep -oE '\"[a-zA-Z0-9_-]{10,14}\"[^}]{0,300}\"[Bb]arn [Oo]wl\"' /tmp/pp_search.html)",
+      "Bash(grep -oE '\"title\":\"[^\"]*[Oo]wl[^\"]*\"[^}]{0,150}\"slug\":\"[^\"]+\"' /tmp/pp_search.html)",
+      "Bash(grep -oE '\"title\":\"[^\"]*[Bb]arn[^\"]*\"[^}]{0,400}' /tmp/pp_search.html)",
+      "Bash(curl -L -k --ssl-no-revoke -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 Chrome/120.0\" -m 20 \"https://free3d.com/3d-models/barn-owl\" -o /tmp/free3d.html)",
+      "WebFetch(domain:www.cgtrader.com)",
+      "Bash(curl -L -k --ssl-no-revoke -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 Chrome/120.0\" -m 30 \"https://www.cgtrader.com/free-3d-models/animals/bird/barn-owl-a6ebd1ac-f0f3-4282-94c2-c85217e7ce90\" -o /tmp/cgtrader.html)",
+      "Bash(grep -oE 'polygons[^<]*|polygon[^<]{0,80}|\"polyCount\":[0-9]+|\"vertices\":[0-9]+' /tmp/cgtrader.html)",
+      "Bash(curl -L -k --ssl-no-revoke -A \"Mozilla/5.0\" -m 20 \"https://img-new.cgtrader.com/items/4543626/096dab5b63/large/barn-owl-3d-model-096dab5b63.jpg\" -o \"c:/Users/GZv0x00/OneDrive/Документы/Owl/_renders/cgtrader_owl.jpg\")",
+      "Bash(curl -L -k --ssl-no-revoke -A \"Mozilla/5.0\" -m 20 \"https://www.phenome10k.org/tyto-alba/\" -o /tmp/phenome.html)",
+      "Bash(curl -L -k --ssl-no-revoke -A \"Mozilla/5.0\" -m 20 \"https://open3dmodel.com/search?q=barn+owl\" -o /tmp/o3d.html)",
+      "WebFetch(domain:www.meshy.ai)",
+      "Bash(curl -L -k --ssl-no-revoke -A \"Mozilla/5.0\" -m 20 \"https://www.meshy.ai/tags/owl\" -o /tmp/meshy.html)",
+      "Bash(grep -oiE 'barn.{0,30}owl|tyto.{0,10}alba' /tmp/meshy.html)",
+      "Bash(grep -oE '\"[Oo]wl[^\"]{0,40}\"' /tmp/meshy.html)",
+      "Bash(rm -f public/models/owl.stylized.glb public/models/owl.source.glb owl.blend owl.blend1 TYTO_ALBA_CODEX_BRIEF.txt BARN_OWL_REAL_MODEL_SOURCES.md)",
+      "Bash(rm -rf _renders renders dist)"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
+    ]
+  }
+}

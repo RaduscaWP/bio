@@ -1,0 +1,29 @@
+$color-void: #05070d;
+$color-night: #071426;
+$color-night-soft: #10233a;
+$color-silver: #dde3ee;
+$color-muted: rgba(221, 227, 238, 0.72);
+$color-dim: rgba(221, 227, 238, 0.42);
+$color-cyan: #6fb7c8;
+$color-moon: #d8b86a;
+$color-violet: #5b4c96;
+$color-ember: #bf5d55;
+$color-line: rgba(221, 227, 238, 0.12);
+$color-glass: rgba(7, 20, 38, 0.44);
+
+$font-heading: "Cormorant Garamond", Georgia, serif;
+$font-body: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+$ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+$z-canvas: 0;
+$z-story: 3;
+$z-ui: 12;
+$z-menu: 24;
+$z-loading: 30;
+$z-cursor: 40;
+
+$bp-laptop: 1200px;
+$bp-tablet: 920px;
+$bp-mobile: 640px;
