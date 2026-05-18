@@ -52,94 +52,43 @@ function renderNoteLines(facts = []) {
   `;
 }
 
-function renderChapterHeading(chapter, { level = 2 } = {}) {
+function renderChapterHeading(chapter, { level = 2, index = 0 } = {}) {
   const headingTag = `h${level}`;
+  const chapterNum = String(index + 1).padStart(2, "0");
+  const kickerLabel = chapter.navLabel.toUpperCase();
 
   return `
-    <p class="section-kicker">${chapter.kicker}</p>
+    <p class="section-kicker">${chapterNum} / ${kickerLabel}</p>
     <${headingTag} class="section-title" id="${chapter.id}-title">${chapter.title}</${headingTag}>
-    <p class="section-subtitle">${chapter.subtitle}</p>
     <p class="section-body">${chapter.body}</p>
-    <p class="section-micro">${chapter.microcopy}</p>
   `;
 }
 
-function renderHeroChapter(chapter, index) {
+function renderChapter(chapter, index) {
   const sectionNumber = String(index + 1).padStart(2, "0");
 
   return `
     <section
-      class="story-section story-section--${chapter.layout}"
+      class="story-section"
       id="${chapter.id}"
       data-section="${chapter.id}"
       data-index="${sectionNumber}"
       data-label="${chapter.navLabel}"
-      aria-labelledby="${chapter.id}-title"
-    >
-      <div class="section-shell section-shell--hero">
-        <div class="section-copy">
-          ${renderChapterHeading(chapter, { level: 1 })}
-        </div>
-        <aside class="section-notes section-notes--hero">
-          ${renderNoteLines(chapter.facts)}
-        </aside>
-      </div>
-    </section>
-  `;
-}
-
-function renderDefaultChapter(chapter, index) {
-  const sectionNumber = String(index + 1).padStart(2, "0");
-
-  return `
-    <section
-      class="story-section story-section--${chapter.layout}"
-      id="${chapter.id}"
-      data-section="${chapter.id}"
-      data-index="${sectionNumber}"
-      data-label="${chapter.navLabel}"
+      data-theme="${chapter.theme || ""}"
       aria-labelledby="${chapter.id}-title"
     >
       <div class="section-shell">
         <div class="section-copy">
-          ${renderChapterHeading(chapter)}
+          ${renderChapterHeading(chapter, { level: index === 0 ? 1 : 2, index })}
         </div>
-        <aside class="section-notes">
+        ${chapter.facts?.length ? `
+        <aside class="section-notes" aria-label="Date biologice">
           ${renderNoteLines(chapter.facts)}
-        </aside>
+        </aside>` : ""}
       </div>
     </section>
   `;
 }
-
-function renderClosingChapter(chapter, index) {
-  const sectionNumber = String(index + 1).padStart(2, "0");
-
-  return `
-    <section
-      class="story-section story-section--${chapter.layout}"
-      id="${chapter.id}"
-      data-section="${chapter.id}"
-      data-index="${sectionNumber}"
-      data-label="${chapter.navLabel}"
-      aria-labelledby="${chapter.id}-title"
-    >
-      <div class="section-shell section-shell--closing">
-        <div class="section-copy section-copy--closing">
-          ${renderChapterHeading(chapter)}
-        </div>
-        <aside class="section-notes section-notes--closing">
-          ${renderNoteLines(chapter.facts)}
-        </aside>
-      </div>
-    </section>
-  `;
-}
-
-const chapterRenderers = {
-  hero: renderHeroChapter,
-  conservation: renderClosingChapter,
-};
 
 function renderStory() {
   if (!app.story) {
@@ -147,10 +96,7 @@ function renderStory() {
   }
 
   app.story.innerHTML = storyChapters
-    .map((chapter, index) => {
-      const renderer = chapterRenderers[chapter.id] || renderDefaultChapter;
-      return renderer(chapter, index);
-    })
+    .map((chapter, index) => renderChapter(chapter, index))
     .join("");
 
   return markSections({ sections: app.story.querySelectorAll("[data-section]") });

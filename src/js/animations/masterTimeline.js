@@ -6,11 +6,8 @@ gsap.registerPlugin(ScrollTrigger);
 const REVEAL_SELECTOR = [
   ".section-kicker",
   ".section-title",
-  ".section-subtitle",
   ".section-body",
-  ".section-micro",
   ".note-line",
-  ".section-notes__eyebrow",
 ].join(", ");
 
 function toArray(value) {
@@ -94,23 +91,35 @@ function createTextReveal(section, { reducedMotion, animations, immediate = fals
 
   gsap.set(revealItems, {
     autoAlpha: 0,
-    y: reducedMotion ? 0 : 22,
+    y: reducedMotion ? 0 : 70,
   });
 
   const tween = gsap.to(revealItems, {
     autoAlpha: 1,
     y: 0,
-    duration: reducedMotion ? 0.18 : 0.92,
-    ease: "power2.out",
-    stagger: reducedMotion ? 0.02 : 0.08,
+    duration: reducedMotion ? 0.18 : 1.05,
+    ease: "power3.out",
+    stagger: reducedMotion ? 0.02 : 0.1,
     scrollTrigger: {
       trigger: section,
-      start: "top 68%",
+      start: "top 82%",
       once: true,
     },
   });
 
-  animations.push(tween);
+  const exitTween = gsap.to(revealItems, {
+    autoAlpha: 0,
+    y: -30,
+    ease: "power2.in",
+    scrollTrigger: {
+      trigger: section,
+      start: "bottom 25%",
+      end: "bottom top",
+      scrub: 0.4,
+    },
+  });
+
+  animations.push(tween, exitTween);
 }
 
 function createCameraChapter(section, sceneState, { sceneExperience, reducedMotion, animations }) {
@@ -137,9 +146,9 @@ function createCameraChapter(section, sceneState, { sceneExperience, reducedMoti
     },
     scrollTrigger: {
       trigger: section,
-      start: "top 76%",
-      end: "bottom 76%",
-      scrub: 0.85,
+      start: "top 90%",
+      end: "bottom 60%",
+      scrub: 0.65,
     },
   });
 

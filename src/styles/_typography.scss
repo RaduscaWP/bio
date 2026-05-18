@@ -50,28 +50,35 @@ ol {
 
 .section-title,
 .chapter-menu__title {
-  font-family: $font-heading;
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-family: $font-display;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 
 .section-title {
-  max-width: 6ch;
-  font-size: clamp(3.6rem, 7.4vw, 8.2rem);
-  line-height: 0.86;
+  font-size: clamp(4.5rem, 10vw, 12rem);
+  line-height: 0.88;
+  max-width: none;
 }
 
-.story-section--closing .section-title {
-  max-width: 7.2ch;
+.section-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba($color-silver, 0.52);
+  line-height: 1;
 }
 
 .section-subtitle {
-  color: rgba($color-silver, 0.76);
-  font-size: 0.92rem;
+  color: rgba($color-silver, 0.6);
+  font-size: 0.88rem;
   font-weight: 600;
   line-height: 1.4;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .section-body,
@@ -81,8 +88,8 @@ ol {
 .site-footer__description,
 .site-footer__notes li {
   color: $color-muted;
-  font-size: clamp(1rem, 1.08vw, 1.18rem);
-  line-height: 1.62;
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  line-height: 1.65;
 }
 
 .section-body {
@@ -91,15 +98,15 @@ ol {
 
 .section-micro {
   max-width: 23rem;
-  font-size: clamp(0.94rem, 0.98vw, 1.02rem);
-  color: rgba($color-silver, 0.88);
+  font-size: clamp(0.88rem, 0.94vw, 0.98rem);
+  color: rgba($color-silver, 0.78);
 }
 
 .note-line__index,
 .loading-veil__status {
   color: $color-dim;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -108,7 +115,7 @@ ol {
 }
 
 .note-line__text {
-  font-size: 0.98rem;
+  font-size: 0.82rem;
 }
 
 .species-mark__title {
@@ -123,7 +130,7 @@ ol {
 }
 
 .chapter-menu__title {
-  max-width: 6ch;
+  max-width: 8ch;
   font-size: clamp(3rem, 6vw, 6rem);
   line-height: 0.9;
 }
@@ -146,9 +153,9 @@ ol {
 
 @media (max-width: $bp-tablet) {
   .section-title {
-    max-width: 7ch;
-    font-size: clamp(3.3rem, 12vw, 7rem);
-    line-height: 0.88;
+    font-size: clamp(4rem, 14vw, 8rem);
+    max-width: none;
+    line-height: 0.9;
   }
 }
 
@@ -173,8 +180,8 @@ ol {
   }
 
   .section-title {
-    max-width: 7.4ch;
-    font-size: clamp(3rem, 15vw, 5rem);
+    font-size: clamp(3.5rem, 16vw, 6rem);
+    line-height: 0.92;
   }
 
   .section-body,
@@ -183,7 +190,7 @@ ol {
   .chapter-menu__text,
   .site-footer__description,
   .site-footer__notes li {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     line-height: 1.7;
   }
 }
